@@ -1,6 +1,6 @@
 {
   "name": "node-test-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Test reporter for the node test runner",
   "author": "Kjell-Morten Bratsberg Thorsen <kjellmorten@integreat.io>",
   "license": "ISC",
