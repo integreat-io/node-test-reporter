@@ -157,7 +157,9 @@ function formatMessage(message) {
 }
 
 const formatMessages = (messages) =>
-  messages.map(formatMessage).join("\n\n") + "\n";
+  messages.length > 0
+    ? messages.map(formatMessage).join("\n\n") + "\n"
+    : undefined;
 
 const isFile = (event) => event.data.file.endsWith(event.data.name);
 const isTodo = (event) => event.data.todo;
@@ -249,6 +251,7 @@ export default async function* customReporter(source) {
 
             summary = {};
             errors = [];
+            messages = [];
             isRunComplete = true;
             clearStatus(status);
             console.log(line);
