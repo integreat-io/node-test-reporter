@@ -1,8 +1,10 @@
 # Test reporter for the node test runner
 
+[![npm Version](https://img.shields.io/npm/v/node-test-reporter.svg)](https://www.npmjs.com/package/node-test-reporter)
+
 This is a test reporter tailored to the node test runner, that was introduced
 in node v18. The runner is tested with node v20 and v22, but should work in
-older versions too.
+other versions too.
 
 The reporter will list all tests as they run, with a running count of the total
 number of tests started and how many passed or failed. When done, we print all
@@ -57,7 +59,7 @@ Code coverage is still experimental in node v22, but may be included like this:
 node --test --experimental-test-coverage --test-reporter node-test-reporter 'src/**/*.test.js'
 ```
 
-### Running the tests
+## Running the tests
 
 This repo ironically doesn't have any tests yet. :S
 
