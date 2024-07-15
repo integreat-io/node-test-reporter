@@ -1,0 +1,19 @@
+{
+  "name": "great-test-reporter",
+  "version": "1.0.0",
+  "description": "Test reporter for node test runner",
+  "author": "Kjell-Morten Bratsberg Thorsen <kjellmorten@integreat.io>",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/integreat-io/great-test-reporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/integreat.io/great-test-reporter/issues"
+  },
+  "homepage": "https://github.com/integreat.io/great-test-reporter#readme"
+}
