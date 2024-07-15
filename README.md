@@ -35,9 +35,10 @@ This is best run as a script in your `package.json`:
 
 > [!NOTE]
 > We use `'src/**/*.test.js'` here to include all files ending with `.test.js`
-> below the `src` folder. The `**` glob only works like this from node v21, and
-> only when surrounded by quotes. Before v21, you may use `src` (without
-> quotes) instead.
+> below the `src` folder. The `**` glob have only worked like this since node
+> v21, and only when surrounded by quotes. This was a breaking change in node.
+> For older versions, you may use `src` (without quotes) instead. See
+> [this disussion](https://github.com/nodejs/node/issues/50287) for more.
 
 ## TypeScript
 
