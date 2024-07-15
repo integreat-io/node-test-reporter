@@ -10,5 +10,5 @@
 ## Reporting a Vulnerability
 
 To report a vulnerability, please
-[create an issue](https://github.com/integreat-io/great-test-reporter/issues)
+[create an issue](https://github.com/integreat-io/node-test-reporter/issues)
 in this repo.

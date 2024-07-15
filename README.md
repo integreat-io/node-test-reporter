@@ -12,13 +12,13 @@ print a summary of the coverage percentages too.
 ## Installing and using
 
 ```
-npm install great-test-reporter -D
+npm install node-test-reporter -D
 ```
 
 To run your tests:
 
 ```
-node --test --test-reporter great-test-reporter 'src/**/*.test.js'
+node --test --test-reporter node-test-reporter 'src/**/*.test.js'
 ```
 
 This is best run as a script in your `package.json`:
@@ -26,7 +26,7 @@ This is best run as a script in your `package.json`:
 ```
 "scripts": {
   ...
-  "test": "node --test --test-reporter great-test-reporter 'src/**/*.test.js'"
+  "test": "node --test --test-reporter node-test-reporter 'src/**/*.test.js'"
   ...
 }
 ```
@@ -43,7 +43,7 @@ To run TypeScript tests, install e.g. the [tsx](https://github.com/privatenumber
 package and run your tests like this:
 
 ```
-node --import tsx --test --enable-source-maps --test-reporter great-test-reporter 'src/**/*.test.ts'
+node --import tsx --test --enable-source-maps --test-reporter node-test-reporter 'src/**/*.test.ts'
 ```
 
 By enabling source maps with `--enable-source-maps`, you'll get the correct
@@ -54,7 +54,7 @@ line and column numbers for your `.ts` files.
 Code coverage is still experimental in node v22, but may be included like this:
 
 ```
-node --test --experimental-test-coverage --test-reporter great-test-reporter 'src/**/*.test.js'
+node --test --experimental-test-coverage --test-reporter node-test-reporter 'src/**/*.test.js'
 ```
 
 ### Running the tests
@@ -64,12 +64,12 @@ This repo ironically doesn't have any tests yet. :S
 ## Contributing
 
 Please read
-[CONTRIBUTING](https://github.com/integreat-io/great-test-reporter/blob/master/CONTRIBUTING.md)
+[CONTRIBUTING](https://github.com/integreat-io/node-test-reporter/blob/master/CONTRIBUTING.md)
 for details on our code of conduct, and the process for submitting pull
 requests.
 
 ## License
 
 This project is licensed under the ISC License - see the
-[LICENSE](https://github.com/integreat-io/great-test-reporter/blob/master/LICENSE)
+[LICENSE](https://github.com/integreat-io/node-test-reporter/blob/master/LICENSE)
 file for details.
