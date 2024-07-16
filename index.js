@@ -107,22 +107,23 @@ const createMessage = (event) => ({
 const ensureEndingLineshift = (str) => (str.endsWith("\n") ? str : `${str}\n`);
 
 function formatCauseLine(line) {
-  if (line.startsWith("+ actual")) {
-    return line
-      .replace(
-        "+ actual - expected",
-        `${chalk.green("+")} expected ${chalk.red("-")} actual`,
-      )
-      .replace("...", chalk.grey("…"));
-  } else if (line.startsWith("+")) {
-    return `${chalk.red("-")}${line.slice(1)} `;
-  } else if (line.startsWith("-")) {
-    return `${chalk.green("+")}${line.slice(1)} `;
-  } else if (line === "...") {
-    return chalk.grey("…");
-  } else {
-    return line;
+  if (typeof line === 'string') {
+    if (line.startsWith("+ actual")) {
+      return line
+        .replace(
+          "+ actual - expected",
+          `${chalk.green("+")} expected ${chalk.red("-")} actual`,
+        )
+        .replace("...", chalk.grey("…"));
+    } else if (line.startsWith("+")) {
+      return `${chalk.red("-")}${line.slice(1)} `;
+    } else if (line.startsWith("-")) {
+      return `${chalk.green("+")}${line.slice(1)} `;
+    } else if (line === "...") {
+      return chalk.grey("…");
+    }
   }
+  return line;
 }
 
 function formatCause(cause) {
@@ -132,7 +133,7 @@ function formatCause(cause) {
 
 function formatFile(file) {
   const dir = process.cwd();
-  if (file.startsWith(dir)) {
+  if (typeof file === 'string' && file.startsWith(dir)) {
     return file.slice(dir.length);
   } else {
     return file;
@@ -142,9 +143,9 @@ function formatFile(file) {
 function formatError(error) {
   return [
     chalk.red.bold(`Test '${error.name}' failed`),
-    `in file '${formatFile(error.file)}', line ${error.line}, column ${error.column}\n`,
+    error.file ? `in file '${formatFile(error.file)}', line ${error.line}, column ${error.column}\n` : undefined,
     formatCause(error.cause),
-  ].join("\n");
+  ].filter(Boolean).join("\n");
 }
 
 const formatErrors = (errors) => errors.map(formatError).join("\n\n");
@@ -152,8 +153,8 @@ const formatErrors = (errors) => errors.map(formatError).join("\n\n");
 function formatMessage(message) {
   return [
     `${chalk.yellow.bold("Message from test:")} ${message.message}`,
-    `in file '${formatFile(message.file)}', line ${message.line}, column ${message.column}`,
-  ].join("\n");
+    message.file ? `in file '${formatFile(message.file)}', line ${message.line}, column ${message.column}` : undefined,
+  ].filter(Boolean).join("\n");
 }
 
 const formatMessages = (messages) =>
