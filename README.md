@@ -4,7 +4,7 @@
 
 This is a test reporter tailored to the node test runner, that was introduced
 in node v18. The runner is tested with node v20 and v22, but should work in
-other versions too.
+other versions too. See [note below](#coverage) on coverage in v20.
 
 The reporter will list all tests as they run, with a running count of the total
 number of tests started and how many passed or failed. When done, we print all
@@ -59,6 +59,12 @@ Code coverage is still experimental in node v22, but may be included like this:
 ```
 node --test --experimental-test-coverage --test-reporter node-test-reporter 'src/**/*.test.js'
 ```
+
+> [!NOTE]
+> The experimental test covarge is available from node v18, but has a bug in v20
+> where it will throw an error in some instances. We recommend using v22 for
+> coverage. See [this discusson](https://github.com/nodejs/node/issues/51552)
+> for more.
 
 ## Running the tests
 
