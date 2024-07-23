@@ -94,7 +94,7 @@ const createError = (event) => ({
   line: event.data.line,
   column: event.data.column,
   type: event.data.details.error.failureType,
-  cause: getCause(event.data.details.error.cause),
+  cause: getCause(event.data.details.error),
 });
 
 const createMessage = (event) => ({
@@ -107,7 +107,7 @@ const createMessage = (event) => ({
 const ensureEndingLineshift = (str) => (str.endsWith("\n") ? str : `${str}\n`);
 
 function formatCauseLine(line) {
-  if (typeof line === 'string') {
+  if (typeof line === "string") {
     if (line.startsWith("+ actual")) {
       return line
         .replace(
@@ -133,7 +133,7 @@ function formatCause(cause) {
 
 function formatFile(file) {
   const dir = process.cwd();
-  if (typeof file === 'string' && file.startsWith(dir)) {
+  if (typeof file === "string" && file.startsWith(dir)) {
     return file.slice(dir.length);
   } else {
     return file;
@@ -143,9 +143,13 @@ function formatFile(file) {
 function formatError(error) {
   return [
     chalk.red.bold(`Test '${error.name}' failed`),
-    error.file ? `in file '${formatFile(error.file)}', line ${error.line}, column ${error.column}\n` : undefined,
+    error.file
+      ? `in file '${formatFile(error.file)}', line ${error.line}, column ${error.column}\n`
+      : undefined,
     formatCause(error.cause),
-  ].filter(Boolean).join("\n");
+  ]
+    .filter(Boolean)
+    .join("\n");
 }
 
 const formatErrors = (errors) => errors.map(formatError).join("\n\n");
@@ -153,8 +157,12 @@ const formatErrors = (errors) => errors.map(formatError).join("\n\n");
 function formatMessage(message) {
   return [
     `${chalk.yellow.bold("Message from test:")} ${message.message}`,
-    message.file ? `in file '${formatFile(message.file)}', line ${message.line}, column ${message.column}` : undefined,
-  ].filter(Boolean).join("\n");
+    message.file
+      ? `in file '${formatFile(message.file)}', line ${message.line}, column ${message.column}`
+      : undefined,
+  ]
+    .filter(Boolean)
+    .join("\n");
 }
 
 const formatMessages = (messages) =>
