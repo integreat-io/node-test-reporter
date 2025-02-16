@@ -2,14 +2,26 @@
 
 [![npm Version](https://img.shields.io/npm/v/node-test-reporter.svg)](https://www.npmjs.com/package/node-test-reporter)
 
-This is a test reporter tailored to the node test runner, that was introduced
-in node v18. The runner is tested with node v20 and v22, but should work in
-other versions too. See [note below](#coverage) on coverage in v20.
+This is a test reporter for the built-in node test runner, providing a cleaner
+output inspired in particular by the [Ava](https://github.com/avajs/ava) test
+runner.
 
 The reporter will list all tests as they run, with a running count of the total
 number of tests started and how many passed or failed. When done, we print all
 diagnostic messages, errors, and a summary. If code coverage is enabled, we
-print a summary of the coverage percentages too.
+print a summary of the coverage percentages too. (See [note below](#coverage) on
+coverage in node v20.)
+
+![Screenshot](media/screenshot.png)
+
+The node test runner was introduced in node v18. This reporter is tested with
+node v20 and v22, but should work in other versions too.
+
+> [!NOTE]
+> We flip the meaning of plus and minus signs when showing diffs in the output,
+> to match the convention of some other test runners. This is probably a matter
+> of taste, and if you prefer the way node test runner does it by default, this
+> may not be the right reporter for you.
 
 ## Installing and using
 
