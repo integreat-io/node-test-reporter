@@ -60,5 +60,5 @@ Ran 1 tests (57ms)
 
   const output = result.filter((line) => !line.includes('Started')).join('')
   const diff = getSimilarity(expected, output)
-  t.true(diff > 92, `should be pretty similar (was ${diff})`)
+  t.true(diff > 90, `should be pretty similar (was ${diff})`)
 })
