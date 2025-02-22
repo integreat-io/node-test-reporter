@@ -10,10 +10,9 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
-          node-version: "22.x"
-          registry-url: "https://registry.npmjs.org"
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - run: npm run build
       - name: Publish release
         run: npm publish
         env:
