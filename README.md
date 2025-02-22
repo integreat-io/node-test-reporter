@@ -80,7 +80,9 @@ node --test --experimental-test-coverage --test-reporter node-test-reporter 'src
 
 ## Running the tests
 
-This repo ironically doesn't have any tests yet. :S
+```
+npm test
+```
 
 ## Contributing
 

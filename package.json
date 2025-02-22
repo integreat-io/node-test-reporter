@@ -6,10 +6,10 @@
   "license": "ISC",
   "type": "module",
   "exports": {
-    "import": "./index.js"
+    "import": "./lib/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape tests/*.test.js | tap-min"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,11 @@
     "node": ">= 18"
   },
   "dependencies": {
-    "chalk": "^5.4.1",
-    "ora": "^8.2.0"
+    "chalk": "^5.4.1"
+  },
+  "devDependencies": {
+    "calculate-string-similarity": "^1.0.9",
+    "tap-min": "^3.0.0",
+    "tape": "^5.9.0"
   }
 }
