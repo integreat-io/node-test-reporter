@@ -1,10 +1,10 @@
-name: "Version"
+name: 'Version'
 
 on:
   workflow_dispatch:
     inputs:
       version-range:
-        description: "Semantic Version Range"
+        description: 'Semantic Version Range'
         required: true
         type: choice
         options:
@@ -13,9 +13,13 @@ on:
           - patch
           - rc
       is-pre-release:
-        description: "Is Pre-release"
+        description: 'Is Pre-release'
         required: true
         type: boolean
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   create-pr:
@@ -47,7 +51,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22.x
-          cache: "npm"
+          cache: 'npm'
       - name: NPM Version
         # Possible outputs:
         # - For pre release with major, minor or patch bump: npm version pre{major|minor|patch} --preid rc
