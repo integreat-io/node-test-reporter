@@ -1,10 +1,5 @@
-// import pluginPromise from 'eslint-plugin-promise'
-// import pluginSecurity from 'eslint-plugin-security'
-// import eslintConfigPrettier from 'eslint-config-prettier'
-
-// eslintConfigPrettier,
-// pluginPromise.configs['flat/recommended'],
-// pluginSecurity.configs.recommended,
+import pluginPrettier from 'eslint-config-prettier'
+import pluginPromise from 'eslint-plugin-promise'
 
 import globals from 'globals'
 import pluginJs from '@eslint/js'
@@ -13,4 +8,6 @@ import pluginJs from '@eslint/js'
 export default [
   { languageOptions: { globals: globals.node } },
   pluginJs.configs.recommended,
+  pluginPrettier,
+  pluginPromise.configs['flat/recommended'],
 ]
