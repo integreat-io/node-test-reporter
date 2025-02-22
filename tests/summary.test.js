@@ -14,7 +14,7 @@ test('should start spinner with status', async (t) => {
 })
 
 test('should list successful test', async (t) => {
-  const expected = /^\r\x1B\[K✓ should pass \(\d\.\dms\)\n/
+  const expected = /^\r\x1B\[K✓ should pass \(\d+(\.\d+)?ms\)\n/
 
   const result = await runTests(['passing'])
 
@@ -22,7 +22,7 @@ test('should list successful test', async (t) => {
 })
 
 test('should list failing test', async (t) => {
-  const expected = /^\r\x1B\[Kx should fail \(\d\.\dms\)\n/
+  const expected = /^\r\x1B\[Kx should fail \(\d+(\.\d+)?ms\)\n/
 
   const result = await runTests(['failing'])
 
@@ -31,7 +31,7 @@ test('should list failing test', async (t) => {
 
 test('should output error from failing test', async (t) => {
   const expected =
-    /^ \n\nTest 'should fail' failed\nin file '\/tests\/cases\/failing\.js', line 4, column 1\n\nExpected values to be strictly equal:\n\ntrue !== false\n/
+    /^ \n\nTest 'should fail' failed\nin file '\/tests\/cases\/failing\.js', line 5, column 10\n\nExpected values to be strictly equal:\n\ntrue !== false\n/
 
   const result = await runTests(['failing'])
 
@@ -40,7 +40,7 @@ test('should output error from failing test', async (t) => {
 
 test('should output error from failing test with deepEqual', async (t) => {
   const expected =
-    /^ \n\nTest 'should fail with deepEqual' failed\nin file '\/tests\/cases\/failingDeepEqual.js', line 4, column 1\n\nExpected values to be strictly deep-equal:\n\+ expected - actual\n\n\s{2}\{\n\s{4}id: 1,\n-\s{3}title: 'This is good' \n\+\s{3}title: 'This is better' \n\s{2}\}\n/
+    /^ \n\nTest 'should fail with deepEqual' failed\nin file '\/tests\/cases\/failingDeepEqual.js', line 8, column 10\n\nExpected values to be strictly deep-equal:\n\+ expected - actual\n\n\s{2}\{\n\s{4}id: 1,\n-\s{3}title: 'This is good' \n\+\s{3}title: 'This is better' \n\s{2}\}\n/
 
   const result = await runTests(['failingDeepEqual'])
 
