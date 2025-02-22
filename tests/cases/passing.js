@@ -1,6 +1,6 @@
-import test from "node:test";
-import assert from "node:assert/strict";
+import test from 'node:test'
+import assert from 'node:assert/strict'
 
-test("should pass", () => {
-  assert.equal(true, true);
-});
+test('should pass', () => {
+  assert.equal(true, true)
+})
