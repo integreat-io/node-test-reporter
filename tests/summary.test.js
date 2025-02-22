@@ -38,6 +38,15 @@ test('should output error from failing test', async (t) => {
   t.match(result[result.length - 1], expected)
 })
 
+test('should output error from failing test with deepEqual', async (t) => {
+  const expected =
+    /^ \n\nTest 'should fail with deepEqual' failed\nin file '\/tests\/cases\/failingDeepEqual.js', line 4, column 1\n\nExpected values to be strictly deep-equal:\n\+ expected - actual\n\n\s{2}\{\n\s{4}id: 1,\n-\s{3}title: 'This is good' \n\+\s{3}title: 'This is better' \n\s{2}\}\n/
+
+  const result = await runTests(['failingDeepEqual'])
+
+  t.match(result[result.length - 1], expected)
+})
+
 test('should end with summary', async (t) => {
   const expected =
     /Ran 2 tests \(\d\d\d?ms\)\n\s{2}1 passed\n\s{2}1 failed\n\n$/
