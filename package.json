@@ -9,7 +9,9 @@
     "import": "./lib/index.js"
   },
   "scripts": {
-    "test": "tape tests/*.test.js | tap-min"
+    "test": "tape tests/*.test.js | tap-min",
+    "lint": "eslint",
+    "verify": "npm run lint && npm test"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,12 @@
     "chalk": "^5.4.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.21.0",
     "calculate-string-similarity": "^1.0.9",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-promise": "^7.2.1",
+    "prettier": "^3.5.2",
     "tap-min": "^3.0.0",
     "tape": "^5.9.0"
   }
