@@ -15,7 +15,7 @@ coverage in node v20.)
 ![Screenshot](media/screenshot.png)
 
 The node test runner was introduced in node v18. This reporter is tested with
-node v20 and v22, but should work in other versions too.
+node v20, v22, and v23, but should work in other versions too.
 
 > [!NOTE]
 > We flip the meaning of plus and minus signs when showing diffs in the output,
