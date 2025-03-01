@@ -40,7 +40,7 @@ test('should output error from failing test', async (t) => {
 
 test('should output error from failing test with deepEqual', async (t) => {
   const expected =
-    /^ \n\nTest 'should fail with deepEqual' failed\nin file '\/tests\/cases\/failingDeepEqual.js', line 8, column 10\n\nExpected values to be strictly deep-equal:\n\+ expected - actual\n\n\s{2}\{\n\s{4}id: 1,\n-\s{3}title: 'This is good' \n\+\s{3}title: 'This is better' \n\s{2}\}\n/
+    /^ \n\nTest 'should fail with deepEqual' failed\nin file '\/tests\/cases\/failingDeepEqual.js', line 8, column 10\n\nExpected values to be strictly deep-equal:\n\+ expected - actual\n\n\s{2}\{\n\s{4}id: 1,\n-\s{3}title: 'This is good', \n\+\s{3}title: 'This is better', \n\s{2}\}\n/
 
   const result = await runTests(['failingDeepEqual'])
 
