@@ -38,3 +38,11 @@ test('should output error from ok', async (t) => {
 
   t.match(result[result.length - 1], expected)
 })
+
+test('should output error from hang', async (t) => {
+  const expected = /\n\nRan 1 tests/
+
+  const result = await runTests(['failingWithHang'])
+
+  t.match(result[result.length - 1], expected)
+})

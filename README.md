@@ -64,6 +64,19 @@ node --import tsx --test --enable-source-maps --test-reporter node-test-reporter
 By enabling source maps with `--enable-source-maps`, you'll get the correct
 line and column numbers for your `.ts` files.
 
+## Tests that hang
+
+It's possible to get the node test runner to hang. When a test or a tests suit
+starts a http server, an interval or a timer, the test runner will not exit
+until the server is closed, the interval is cleared, or the timer is cleared. If
+your test fails without the proper clean up, the test will never end.
+
+Since `node-test-reporter` will not list errors until all tests has ended, you
+will not know which test failed. Because of this, we will now list errors when
+five seconds pass without any tests starting or stopping. This will not
+identify the test that causes the hang, but you will at least be able to see
+which tests failed and _may_ be causing the hang.
+
 ## Coverage
 
 Code coverage is still experimental in node v22, but may be included like this:
