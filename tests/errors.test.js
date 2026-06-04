@@ -38,9 +38,12 @@ test('should output sparse array differences', async (t) => {
     output,
     /^ \n\nTest 'should fail with sparse array diff' failed\nin file '\/tests\/cases\/failingSparseArray.js', line 9, column 10/,
   )
-  t.match(output, /Expected values to be strictly deep-equal:\n\+ actual - expected/)
-  t.match(output, /\+ {3}<2 empty items>,/)
-  t.match(output, /- {3}undefined,/)
+  t.match(
+    output,
+    /Expected values to be strictly deep-equal:\n\+ expected - actual/,
+  )
+  t.match(output, /- {3}<empty item>, /)
+  t.match(output, /\+ {3}undefined, /)
 })
 
 test('should output error from ok', async (t) => {
