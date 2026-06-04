@@ -30,6 +30,19 @@ test('should output deep equal error', async (t) => {
   t.match(result[result.length - 1], expected)
 })
 
+test('should output sparse array differences', async (t) => {
+  const result = await runTests(['failingSparseArray'])
+  const output = result[result.length - 1]
+
+  t.match(
+    output,
+    /^ \n\nTest 'should fail with sparse array diff' failed\nin file '\/tests\/cases\/failingSparseArray.js', line 9, column 10/,
+  )
+  t.match(output, /Expected values to be strictly deep-equal:\n\+ actual - expected/)
+  t.match(output, /\+ {3}<2 empty items>,/)
+  t.match(output, /- {3}undefined,/)
+})
+
 test('should output error from ok', async (t) => {
   const expected =
     /^ \n\nTest 'should fail with ok' failed\nin file '\/tests\/cases\/failingOk\.js', line 5, column 10\n\nThe expression evaluated to a falsy value:\n\n\s\sassert\.ok\(false\)\n/
